@@ -44,10 +44,10 @@ body {
         padding-top: 3rem ;
         font-weight: 300;
         color: rgb(255, 255, 255);
-        font-size: 4.5dvw;
+        font-size: 4dvw;
         margin-left: .7rem;
         margin-right: .7rem;
-        border-bottom: 0.25rem solid transparent;
+    
     }
     .btn-secondary, .btn-secondary:hover{
         color: #333;

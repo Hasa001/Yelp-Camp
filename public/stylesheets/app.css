@@ -1,6 +1,6 @@
 #cluster-map {
     width: 100%;
-    height: 34rem;
+    height: 25rem;
 }
 
 #map {
@@ -21,34 +21,63 @@
     width: 6rem;
 }
 
+#camp #review{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+    /* align-self: center; */
+    /* justify-self: center; */
+}
+
+#star{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
 @media screen and (max-width:577px){
     #cluster-map{
         height:12.4rem;
     }
-    #camp{
+    /* #camp{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-    }
+    } */
     #camp #card{
         width: 100vw;
     }
-    #camp #review{
-        display: flex;
-        flex-direction: column;
-        width: auto;
-    }
-    #star{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+
+
     #made-review{
         display: flex;
         flex-direction: column;
         align-items: center;
+        
     }
 
+    #delete-btn{
+        border: 0;
+        margin-left: 1.2rem;
+        width: 4rem;
+        padding: 0.1rem;
+    }
 
+    #edit-btn{
+        background-color: rgb(108, 231, 255);
+        color: white;
+        border: 0;
+        /* margin-left: 1.1rem; */
+        width: 4rem;
+        padding: 0.1rem;
+        
+    }
+
+    #card-btn{
+        display: flex;
+        flex-direction: row;
+        padding-top:0.8rem;
+        font-size: 1rem;
+    }
 }

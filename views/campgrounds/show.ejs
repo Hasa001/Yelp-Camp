@@ -4,7 +4,7 @@
 
 <!-- <div class="show-page"> -->
 <div class="row" id="camp">
-    <div class="col-6" id="card">
+    <div class="col" id="card">
             <div id="carouselCampground" class="carousel slide">
                 <div class="carousel-inner">
                 <% campground.images.forEach((img,i) => { %>
@@ -36,7 +36,7 @@
                 <li class="list-group-item">$<%= campground.price%>/night</li>
             </ul>
             <%  if( currentUser && campground.author.equals(currentUser._id))  {%>
-            <div class="card-body">
+            <div class="card-body" id="card-btn">
                 <a class="card-link btn btn-info" id="edit-btn" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
                 <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger" id="delete-btn">Delete</button>
@@ -45,15 +45,9 @@
             <% } %>
         </div>
 
-    </div>
-
- <!-- review -->
-    <div class="mb-3">
-    <div id='map'></div>
-    </div>
-    <div class="col-6 text-center" id="review">
-
-        
+      
+        <!-- review -->
+    <div class="col text-center" id="review">
         <% if(currentUser){ %>
         <h2>Leave a Review</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form " id="star" novalidate>
@@ -73,7 +67,7 @@
             </fieldset>
             <div class="mb-3">
                 <!-- <label class="form-label" for="body">Review Text</label> -->
-                <textarea class="form-control text-center" name="review[body]" id="body" cols="30" rows="3" placeholder="review text" required></textarea>
+                <textarea class="form-control text-center mt-3 mb-3" name="review[body]" id="body" cols="30" rows="3" placeholder="review text" required></textarea>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -81,24 +75,40 @@
             <button class="btn btn-success">Submit</button>
         </form>
         <% } %>
+
+    </div>
+
+
+    </div>
+
+    <!-- map -->
+    <div class=" col mb-3">
+    <div id='map'></div>
+
+    <div class="col mt-4">
+
         <% for(let review of campground.reviews) { %>
-        <div class="card mb-3 ">
-            <div class="card-body" id="made-review">
-                <h5 class="card-title"> <%= review.author.username%></h5>
-                <p class="starability-result" data-rating="<%=review.rating%>">
-                    Rated: <%= review.rating %> stars
-                </p>
-                <p class="card-text">Review: <%= review.body %></p>
-                <%  if( currentUser && review.author.equals(currentUser._id))  {%>
-                <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
-                    <button class="btn btn-sm btn-danger">Delete</button>
-                </form>
-                <% } %>
+            <div class="card mb-3 ">
+                <div class="card-body" id="made-review">
+                    <h5 class="card-title"> <%= review.author.username%></h5>
+                    <p class="starability-result" data-rating="<%=review.rating%>">
+                        Rated: <%= review.rating %> stars
+                    </p>
+                    <p class="card-text">Review: <%= review.body %></p>
+                    <%  if( currentUser && review.author.equals(currentUser._id))  {%>
+                    <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                </div>
             </div>
-        </div>
-        <% } %>
+            <% } %>
+    </div>
+
     </div>
 </div>
+     
+
 
 
 <script>const mapToken= '<%- process.env.MAPBOX_TOKEN %>'  
