@@ -26,7 +26,6 @@
             <div class="mb-3">
                 <div class="input-group mb-3">
                     <input type="file" class="form-control" name="image" id="image" multiple>
-                    <label class="input-group-text" for="image">Upload</label>
                   </div>
             </div>
 
@@ -67,11 +66,12 @@
               <%  }) %>
             <!--  -->
             </div>
-            <div class="mb-2">
-                <button class="btn btn-info">Update Campground</button>
+            <div class="mb-2 " id="edit-btn-group">
+                <button class="btn btn-info " id="modify-btn">Update</button>
+                <a href="/campgrounds/<%= campground._id%>" class="btn" id="back-btn">Back</a>
             </div>
         </form>
-        <a href="/campgrounds/<%= campground._id%>" >Back To Campground</a>
+        
      </div>
   </div>
 </div>

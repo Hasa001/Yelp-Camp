@@ -85,10 +85,10 @@
     <div class=" col mb-3">
     <div id='map'></div>
 
-    <div class="col mt-4">
+    <div class="col p-3 mt-4">
 
         <% for(let review of campground.reviews) { %>
-            <div class="card mb-3 ">
+            <div class="card  mb-3 ">
                 <div class="card-body" id="made-review">
                     <h5 class="card-title"> <%= review.author.username%></h5>
                     <p class="starability-result" data-rating="<%=review.rating%>">
